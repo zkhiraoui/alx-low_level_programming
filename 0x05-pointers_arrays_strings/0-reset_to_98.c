@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * reset_to_98
+ * reset_to_98 - check the code for ALX students.
  * @n: declaration of n and paramters for the function reset_to_98
  * Return: Always 0.
  */
