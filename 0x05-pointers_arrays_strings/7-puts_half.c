@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * puts_half - Prints second half of a string, followed by a new line.
  * @str: The string to be cut and printed.
