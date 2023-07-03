@@ -1,20 +1,13 @@
 #include "main.h"
-/**
- * _memset - check the code for ALXSE.
- * @s: parameter for the array
- * @b: parameter for the values in the array
- * @n: parameter for the number of times to print the new values
- * Return: Always 0.
- */
+
 char *_memset(char *s, char b, unsigned int n)
 {
-	unsigned int a = 0;
+    unsigned int i;
 
-	while (a < n)
-	{
-		s[a] = b;
-		a++;
-	}
+    for (i = 0; i < n; i++)
+    {
+        s[i] = b;
+    }
 
-	return (s);
+    return s;
 }
