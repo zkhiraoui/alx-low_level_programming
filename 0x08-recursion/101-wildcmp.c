@@ -1,41 +1,21 @@
 #include "main.h"
-#include <stdio.h>
 
-/* add function prototype here */
-int wildcmp(char *s1, char *s2);
-
-/**
- * main - check the code
- *
- * Return: Always 0.
- */
-int main(void)
+int wildcmp(char *s1, char *s2)
 {
-    int r;
+    /* Base case, when both strings reach to the end */
+    if (*s1 == '\0' && *s2 == '\0')
+        return 1;
 
-    r = wildcmp("main.c", "*.c");
-    printf("%d\n", r);
-    r = wildcmp("main.c", "m*a*i*n*.*c*");
-    printf("%d\n", r);
-    r = wildcmp("main.c", "main.c");
-    printf("%d\n", r);
-    r = wildcmp("main.c", "m*c");
-    printf("%d\n", r);
-    r = wildcmp("main.c", "ma********************************c");
-    printf("%d\n", r);
-    r = wildcmp("main.c", "*");
-    printf("%d\n", r);
-    r = wildcmp("main.c", "***");
-    printf("%d\n", r);
-    r = wildcmp("main.c", "m.*c");
-    printf("%d\n", r);
-    r = wildcmp("main.c", "**.*c");
-    printf("%d\n", r);
-    r = wildcmp("main-main.c", "ma*in.c");
-    printf("%d\n", r);
-    r = wildcmp("main", "main*d");
-    printf("%d\n", r);
-    r = wildcmp("abc", "*b");
-    printf("%d\n", r);
-    return (0);
+    /* If the current character of s2 is '*', then there are two possibilities
+     * a) We consider current character of s2
+     * b) We ignore current character of s2
+     */
+    if (*s2 == '*')
+        return ((*s1 != '\0' && wildcmp(s1 + 1, s2)) || wildcmp(s1, s2 + 1));
+
+    /* If the current character of s1 and s2 match */
+    if (*s1 == *s2)
+        return wildcmp(s1 + 1, s2 + 1);
+
+    return 0;
 }
