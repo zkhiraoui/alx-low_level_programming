@@ -1,15 +1,13 @@
-#include <unistd.h>
-/**
- * _strlen - check the code for ALX School students.
- * @s: declaration of *s and paramters for the function _strlen
- * Return: Always 0.
- */
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
+
 int _strlen(char *s)
 {
-	int c;
+	int length = 0;
 
-	for (c = 0; s[c] != 0; c++)
-	{
-	}
-	return (c);
+	while (s[length])
+		length++;
+	return (length);
 }

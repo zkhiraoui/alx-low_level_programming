@@ -1,11 +1,10 @@
-#include <unistd.h>
+#include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
 
-/**
- * _isupper - writes the character c to stdout
- * @c: The character to print
- * Return: 0
- */
 int _isupper(int c)
 {
-	return 0;
+  return (c >= 'A' && c <= 'Z');
 }
