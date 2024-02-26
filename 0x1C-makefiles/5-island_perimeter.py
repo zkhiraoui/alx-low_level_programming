@@ -1,9 +1,7 @@
 #!/usr/bin/python3
-"""
-This module contains a function that calculates the perimeter of an island.
+"""This module contains a function that calculates the perimeter of an island.
 The island is represented in a grid where 1 represents land and 0 represents water.
-The grid cells are connected horizontally/vertically (not diagonally).
-"""
+The grid cells are connected horizontally/vertically (not diagonally)."""
 
 def island_perimeter(grid):
     """Return the perimiter of an island.
