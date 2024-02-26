@@ -1,0 +1,34 @@
+# Define the compiler, source files, object files, executable name, and compiler flags
+CC=gcc
+SRC=$(wildcard *.c)
+OBJ=$(SRC:.c=.o)
+NAME=school
+CFLAGS=-Wall -Werror -Wextra -pedantic
+
+# Default rule for building the executable
+all: $(NAME)
+
+# Compile and link the object files into the executable
+# Utilize automatic variables and default rules for C source files
+$(NAME): $(OBJ)
+	@$(CC) $(OBJ) -o $(NAME)
+
+# Implicit rule to generate object files from C source files is used,
+# but we define a way to check for the header file dependency
+%.o: %.c m.h
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+# Cleaning rules
+clean:
+	@find . -type f \( -name '*~' -o -name '#*#' \) -delete
+	@find . -type f -name '$(NAME)' -delete
+
+oclean:
+	@find . -type f -name '*.o' -delete
+
+fclean: clean oclean
+
+re: fclean all
+
+# Phony targets to ensure commands run regardless of file names
+.PHONY: all clean fclean oclean re
